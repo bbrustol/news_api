@@ -15,8 +15,6 @@ android {
     defaultConfig {
         minSdk = Versions.App.MIN_SDK
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
-
-        missingDimensionStrategy("core", "bbc-news", "bbc-sport")
     }
 
     compileOptions {

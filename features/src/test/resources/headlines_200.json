@@ -1,0 +1,136 @@
+{
+  "status": "ok",
+  "totalResults": 10,
+  "articles": [
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC Sport",
+      "title": "Onana rants at Maguire during Man Utd defeat",
+      "description": "New signing Andre Onana shows he will bring more to Manchester United than ball-playing ability during a 3-2 defeat by Borussia Dortmund in Las Vegas.",
+      "url": "http://www.bbc.co.uk/sport/football/66357692",
+      "urlToImage": "https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/75A7/production/_130591103_gettyimages-1566021428.jpg",
+      "publishedAt": "2023-07-31T11:07:26.5610467Z",
+      "content": "Andre Onana joined Manchester United from Inter Milan this summer in a deal worth £47m\r\nNew Manchester United goalkeeper Andre Onana showed he will bring more to Erik ten Hag's team than ball-playing… [+3426 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC Sport",
+      "title": "Watch Fifa Women's World Cup: Kerr not in Australia XI to face Canada",
+      "description": "Watch live as Australia face Canada at the Women's World Cup, with text updates from both Group B games.",
+      "url": "http://www.bbc.co.uk/sport/live/football/66183277",
+      "urlToImage": "https:////m.files.bbci.co.uk/modules/bbc-morph-sport-seo-meta/1.23.3/images/bbc-sport-logo.png",
+      "publishedAt": "2023-07-31T09:52:25.7954559Z",
+      "content": "As expected, Vera Pauw has gone with a strong side as the Republic of Ireland round out their World Cup campaign.\r\nHeather Payne, who was set to start against Canada before pulling out of the warm-up… [+980 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Pakistan explosion: Eyewitness describes doomsday scenes",
+      "description": "The death toll is expected to rise as police look at the possibility of a suicide attack.",
+      "url": "http://www.bbc.co.uk/news/world-asia-66321749",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/47E9/production/_130590481_aa28fdf93e11fbd3d1411ae103b7208eb73e111c.jpg",
+      "publishedAt": "2023-07-31T09:37:23.0460226Z",
+      "content": "\"Doomsday scenes\" unfolded in Pakistan after a suicide bomber targeted a political rally, killing at least 45 people, an eyewitness has told the BBC.\r\nPeople screamed for help as rescuers rushed to t… [+2816 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Niger coup: Ousted President Mohamed Bazoum meets Chad's leader",
+      "description": "Mohamed Bazoum meets Chad's president, who is trying to find a way to end the crisis.",
+      "url": "http://www.bbc.co.uk/news/world-africa-66358951",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/DF1F/production/_130591175_mediaitem130591174.jpg",
+      "publishedAt": "2023-07-31T09:07:20.0307604Z",
+      "content": "Niger's ousted president has been seen for the first time since the military detained him after staging a coup last week. \r\nMohamed Bazoum met Chad's leader Mahamat Idriss Déby Itno in Niger's capita… [+2020 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Wagner pauses fighter recruitment and focuses on Africa and Belarus - Prigozhin",
+      "description": "The mercenary group's head says it is deciding on its next objectives, but has urged fighters to \"remain in touch\".",
+      "url": "http://www.bbc.co.uk/news/world-europe-66358269",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/0B0C/production/_130582820_dede4f495c6bd26fbd0d1c50f11c3aef99b70f650_0_6048_40241000x665.jpg",
+      "publishedAt": "2023-07-31T08:52:20.3901677Z",
+      "content": "The head of the Wagner mercenary group says it will continue its activities in Africa and Belarus, but that it is not currently recruiting new fighters.\r\nThe group was deciding on its next objectives… [+2416 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "The Texas town caught in the middle of America's border battle",
+      "description": "Eagle Pass is the front line in a showdown over migrants between Texas and the federal government.",
+      "url": "http://www.bbc.co.uk/news/world-us-canada-66333303",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/CF7D/production/_130571135_magaliurbina1.jpg",
+      "publishedAt": "2023-07-31T08:37:20.9678361Z",
+      "content": "Under the brutal heat of the midday South Texas sun, pecan farmer Magali Urbina found herself dealing with a sadly familiar scene: a family of dehydrated, injured migrants on her property.\r\nIn front … [+6902 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Ukraine war: 'People call us the Ghosts of Bakhmut'",
+      "description": "The BBC is given exclusive access to a team of elite snipers conducting night raids near Bakhmut.",
+      "url": "http://www.bbc.co.uk/news/world-europe-66354363",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/D8C0/production/_130588455_ghost.jpg",
+      "publishedAt": "2023-07-31T05:22:16.9518248Z",
+      "content": "Ukrainian forces are trying to retake the city of Bakhmut in the country's east. The BBC was given exclusive access to a team of elite snipers, referred to as \"the Ghosts of Bakhmut\", who are conduct… [+5353 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Indigenous women and police clash in Peru protest",
+      "description": "At least 60 people have died in anti-government protests since December last year.",
+      "url": "http://www.bbc.co.uk/news/world-latin-america-66357011",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/0B52/production/_130589820_p0g3vhcc.jpg",
+      "publishedAt": "2023-07-31T02:07:13.1081057Z",
+      "content": "Indigenous women and police clashed in Lima, Peru on Saturday in the latest in a long wave of protests calling for the resignation of President Dina Boluarte.\r\nDemonstrators blame the government for … [+286 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Madonna feels 'lucky to be alive' after health scare",
+      "description": "The 64-year-old spent several days in intensive care while receiving treatment for an infection.",
+      "url": "http://www.bbc.co.uk/news/entertainment-arts-66356980",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/413A/production/_130589661_gettyimages-1246834559.jpg",
+      "publishedAt": "2023-07-31T00:52:16.1862961Z",
+      "content": "Madonna has thanked her family and friends for their support after she was hospitalised with a serious bacterial infection last month.\r\nThe singer shared an update on social media saying she was luck… [+2338 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC Sport",
+      "title": "US junior racer White, 17, dies in training accident",
+      "description": "United States junior rider Magnus White, 17, dies after being hit by a car in a training accident in Colorado.",
+      "url": "http://www.bbc.co.uk/sport/cycling/66356845",
+      "urlToImage": "https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/12EBA/production/_130589477_gettyimages-1367699878.jpg",
+      "publishedAt": "2023-07-30T23:07:18.390015Z",
+      "content": "Magnus White (right) began racing at a national level aged 10\r\nAmerican junior rider Magnus White has died after being hit by a car while training in his Colorado home town.\r\nThe 17-year-old, a US ju… [+703 chars]"
+    }
+  ]
+}

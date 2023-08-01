@@ -71,7 +71,7 @@ private val appDarkColorScheme = darkColorScheme(
 )
 
 @Composable
-fun newsapiTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
+fun NewsApiTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
     MaterialTheme(
         colorScheme = if (darkTheme) appDarkColorScheme else appLightColorScheme,
         typography = Typography,

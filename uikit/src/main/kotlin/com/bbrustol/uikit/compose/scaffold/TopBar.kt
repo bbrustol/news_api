@@ -9,12 +9,12 @@ import com.bbrustol.uikit.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopBar(
+fun TopBar(title: String,
     onOpenDrawer: () -> Unit,
 ) {
     TopAppBar(
         title = {
-            Text(text = stringResource(id = R.string.app_name))
+            Text(text = title)
         },
         actions = {
             IconButton(onClick = onOpenDrawer) {
@@ -30,5 +30,5 @@ fun TopBar(
 @Preview
 @Composable
 fun TopBarPreview() {
-    TopBar() {}
+    TopBar("My Title") {}
 }

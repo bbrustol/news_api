@@ -17,7 +17,7 @@ fun TextsCard(
     maxLines: Int = 3,
     style: SpanStyle = SpanStyle(
         fontWeight = FontWeight.Bold,
-        color = MaterialTheme.colorScheme.onPrimary,
+        color = MaterialTheme.colorScheme.onPrimaryContainer,
         fontSize = 12.sp
     )
 ) {

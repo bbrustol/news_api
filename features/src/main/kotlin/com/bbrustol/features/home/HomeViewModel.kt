@@ -27,6 +27,9 @@ class HomeViewModel @Inject constructor(
     private val _uiState = MutableStateFlow<UiState>(Idle)
     var uiState: StateFlow<UiState> = _uiState
 
+
+    init { fetchHeadline() }
+
     fun fetchHeadline() = viewModelScope.launch {
         repository.getHeadline()
             .catch { _uiState.value = Catch(it.message) }

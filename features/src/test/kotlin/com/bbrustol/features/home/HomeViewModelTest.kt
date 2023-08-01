@@ -55,22 +55,11 @@ class HomeViewModelTest {
     }
 
     @Test
-    fun `WHEN viewModel is loaded, THEN State going to be an Idle`() = runTest {
-        viewModel = HomeViewModel(newsApiRepository)
-
-        viewModel.uiState.test {
-            assertTrue(awaitItem() is UiState.Idle)
-            cancelAndConsumeRemainingEvents()
-        }
-    }
-
-    @Test
     fun `WHEN fetch getHeadline is requested and receive a throwable before emit, THEN State going to be an Catch`() = runTest {
 
         coEvery { newsApiRepository.getHeadline() } returns flow { throw IllegalStateException() }
 
         viewModel = HomeViewModel(newsApiRepository)
-        viewModel.fetchHeadline()
 
         viewModel.uiState.test {
             assertTrue(awaitItem() is UiState.Catch)
@@ -86,7 +75,6 @@ class HomeViewModelTest {
         coEvery { newsApiRepository.getHeadline() } returns flow { emit(ApiException(Throwable(""))) }
 
         viewModel = HomeViewModel(newsApiRepository)
-        viewModel.fetchHeadline()
 
         viewModel.uiState.test {
             assertTrue(awaitItem() is UiState.Catch)
@@ -102,7 +90,6 @@ class HomeViewModelTest {
         coEvery { newsApiRepository.getHeadline() } returns flow { emit(ApiError(0, "")) }
 
         viewModel = HomeViewModel(newsApiRepository)
-        viewModel.fetchHeadline()
 
         viewModel.uiState.test {
             assertTrue(awaitItem() is UiState.Failure)
@@ -118,7 +105,6 @@ class HomeViewModelTest {
         coEvery { newsApiRepository.getHeadline() } returns flow { emit(ApiSuccess(getHeadlinesMock())) }
 
         viewModel = HomeViewModel(newsApiRepository)
-        viewModel.fetchHeadline()
 
         viewModel.uiState.test {
             assertTrue(awaitItem() is UiState.Success)

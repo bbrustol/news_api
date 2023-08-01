@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">News API</string>
+
+    <string name="speech_default_image_accessibility">News Picture</string>
+    <string name="speech_close_dialog">Close Dialog</string>
+    <string name="speech_filter_topbar">Filter results</string>
+
+    <string name="catch_generic_message">Generic Error, Try again</string>
+
+        <string name="ops">Ooops!</string>
+    <string name="try_again">Try again</string>
+</resources>

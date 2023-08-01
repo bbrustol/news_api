@@ -19,17 +19,22 @@ import com.bbrustol.features.home.HomeViewModel.*
 import com.bbrustol.features.home.HomeViewModel.UiState.*
 import com.bbrustol.features.home.compose.EmptyStateScreen
 import com.bbrustol.features.home.model.HeadlineModel
+import com.bbrustol.newsapi.MainActivity.Companion.NO_API_KEY
 import com.bbrustol.uikit.compose.scaffold.TopBar
 import com.bbrustol.uikit.theme.NewsApiTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.bbrustol.uikit.R as UIKIT_R
 
+
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent { Start() }
+    }
+    companion object {
+        const val NO_API_KEY=1234
     }
 }
 
@@ -45,12 +50,21 @@ fun RenderState(uiState: UiState, onRetryAction: () -> Unit) {
     when (uiState) {
         Idle -> {/*nothing to do*/}
         Loading -> IsLoading()
-        is Failure -> ShowError(uiState.code, uiState.message, onRetryAction)
+        is Failure -> ShowFailure(uiState, onRetryAction)
         is Catch -> ShowGenericError(
             uiState.message ?: stringResource(UIKIT_R.string.catch_generic_message),
             onRetryAction
         )
         is Success -> SetupView(uiState.headlineModel)
+    }
+}
+
+@Composable
+private fun ShowFailure(uiState: Failure, onRetryAction: () -> Unit) {
+    if (uiState.code == NO_API_KEY) {
+        ShowGenericError(stringResource(UIKIT_R.string.no_token), onRetryAction)
+    } else {
+        ShowError(uiState.code, uiState.message, onRetryAction)
     }
 }
 

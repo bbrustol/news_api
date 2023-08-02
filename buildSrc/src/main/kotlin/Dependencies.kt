@@ -17,20 +17,20 @@ object Dependencies {
         const val ACTIVITY_COMPOSE = "androidx.activity:activity-compose:${Versions.AndroidX.ACTIVITY_COMPOSE}"
 
         object Compose {
-            // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
             const val FOUNDATION = "androidx.compose.foundation:foundation:${Versions.AndroidX.COMPOSE}"
             const val FOUNDATION_LAYOUT = "androidx.compose.foundation:foundation-layout:${Versions.AndroidX.COMPOSE}"
             const val RUNTIME = "androidx.compose.runtime:runtime-livedata:${Versions.AndroidX.COMPOSE}"
             const val MATERIAL3 = "androidx.compose.material3:material3:${Versions.AndroidX.MATERIAL3}"
 
-            const val UI ="androidx.compose.ui:ui:${Versions.AndroidX.COMPOSE_UI}"
+            const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout-compose:${Versions.AndroidX.CONSTRAINT_LAYOUT}"
+
+            const val UI ="androidx.compose.ui:ui:${Versions.AndroidX.COMPOSE}"
             const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.AndroidX.LIFECYCLE}"
             const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-compose:${Versions.AndroidX.LIFECYCLE}"
             const val NAVIGATION = "androidx.navigation:navigation-compose:${ Versions.AndroidX.NAVIGATION}"
 
-            // Tooling support (Previews, etc.)
-            const val UI_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.AndroidX.COMPOSE_UI}"
-            const val UI_TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Versions.AndroidX.COMPOSE_UI}"
+            const val UI_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.AndroidX.COMPOSE}"
+            const val UI_TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Versions.AndroidX.COMPOSE}"
         }
     }
 
@@ -82,51 +82,56 @@ object Dependencies {
         "implementation"(Google.FLOW_LAYOUT)
 
         "implementation"(AndroidX.ACTIVITY_COMPOSE)
+
+        "implementation"(AndroidX.Compose.CONSTRAINT_LAYOUT)
         "implementation"(AndroidX.Compose.FOUNDATION)
         "implementation"(AndroidX.Compose.FOUNDATION_LAYOUT)
-        "implementation"(AndroidX.Compose.MATERIAL3)
-        "implementation"(AndroidX.Compose.UI)
-        "implementation"(AndroidX.Compose.UI_TOOLING_PREVIEW)
         "implementation"(AndroidX.Compose.LIFECYCLE_VIEWMODEL)
         "implementation"(AndroidX.Compose.LIFECYCLE_RUNTIME)
+        "implementation"(AndroidX.Compose.MATERIAL3)
+        "implementation"(AndroidX.Compose.NAVIGATION)
         "implementation"(AndroidX.Compose.RUNTIME)
+        "implementation"(AndroidX.Compose.UI)
+        "implementation"(AndroidX.Compose.UI_TOOLING_PREVIEW)
 
         "debugImplementation"(AndroidX.Compose.UI_TOOLING)
+        
         "implementation"(Others.COIL)
     }
 
     fun DependencyHandlerScope.common() {
         "implementation"(AndroidX.APPCOMPAT)
         "implementation"(AndroidX.CORE_KTX)
-        "implementation"(Jetbrains.KOTLIN_STDLIB)
 
         "implementation"(Google.Hilt.ANDROID)
         "kapt"(Google.Hilt.ANDROID_COMPILER)
 
         "implementation"(Squareup.RETROFIT_MOSHI)
 
-        "implementation"(Jetbrains.Coroutines.CORE)
+        "implementation"(Jetbrains.KOTLIN_STDLIB)
         "implementation"(Jetbrains.Coroutines.ANDROID)
+        "implementation"(Jetbrains.Coroutines.CORE)
         "implementation"(Jetbrains.Coroutines.PLAY_SERVICES)
     }
 
     fun DependencyHandlerScope.commonUnitTest() {
-        "testImplementation"(Test.Unit.JUNIT)
         "testImplementation"(Test.Unit.CORE_TESTING)
-        "testImplementation"(Test.Unit.TURBINE)
+        "testImplementation"(Test.Unit.COROUTINES_TEST)
+        "testImplementation"(Test.Unit.JUNIT)
         "testImplementation"(Test.Unit.MOCKK)
         "testImplementation"(Test.Unit.MOCKK_AGENT)
-        "testImplementation"(Test.Unit.COROUTINES_TEST)
+        "testImplementation"(Test.Unit.TURBINE)
     }
 
     fun DependencyHandlerScope.commonIntegrationTest() {
-        "androidTestImplementation"(Test.Integration.JUNIT)
+        "androidTestImplementation"(Test.Integration.COMPOSE_UI_TEST)
         "androidTestImplementation"(Test.Integration.ESPRESSO_CORE)
         "androidTestImplementation"(Test.Integration.ESPRESSO_INTENTS)
+        "androidTestImplementation"(Test.Integration.JUNIT)
         "androidTestImplementation"(Test.Integration.MOCK_WEBSERVER)
         "androidTestImplementation"(Test.Integration.MOCKK)
-        "androidTestImplementation"(Test.Integration.COMPOSE_UI_TEST)
         "androidTestImplementation"(Test.Integration.RUNNER)
+        
         "androidTestUtil"(Test.Integration.ORCHESTRATOR)
     }
 }

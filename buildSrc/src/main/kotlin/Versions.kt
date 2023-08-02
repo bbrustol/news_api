@@ -10,21 +10,22 @@ object Versions {
     }
 
     object Google {
+        const val FLOW_LAYOUT = "0.30.1"
         const val HILT = "2.47"
         const val MATERIAL = "1.9.0"
-        const val FLOW_LAYOUT = "0.30.1"
     }
 
     object AndroidX {
-        const val CORE_KTX = "1.10.1"
-        const val APPCOMPAT = "1.6.1"
-        const val LIFECYCLE = "2.6.1"
         const val ACTIVITY_COMPOSE = "1.7.2"
+        const val APPCOMPAT = "1.6.1"
         const val COMPOSE = "1.4.3"
-        const val COMPOSE_UI = "1.4.3"
-        const val COMPOSE_COMPILER = "1.4.3"
-        const val NAVIGATION = "25.5.3"
+        const val CONSTRAINT_LAYOUT = "1.0.1"
+        const val CORE_KTX = "1.10.1"
+        const val LIFECYCLE = "2.6.1"
         const val MATERIAL3 = "1.1.1"
+        const val NAVIGATION = "2.6.0"
+
+
     }
 
     object Squareup {

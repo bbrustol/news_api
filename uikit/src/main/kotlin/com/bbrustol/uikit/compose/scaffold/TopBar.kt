@@ -2,33 +2,21 @@ package com.bbrustol.uikit.compose.scaffold
 
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.bbrustol.uikit.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopBar(title: String,
-    onOpenDrawer: () -> Unit,
-) {
+fun TopBar(
+    title: String) {
     TopAppBar(
         title = {
             Text(text = title)
-        },
-        actions = {
-            IconButton(onClick = onOpenDrawer) {
-                Icon(
-                    painter = painterResource(id = R.drawable.filter_list),
-                    contentDescription = stringResource(R.string.speech_filter_topbar),
-                )
-            }
-        },
+        }
     )
 }
 
 @Preview
 @Composable
-fun TopBarPreview() {
-    TopBar("My Title") {}
+fun TopBarDrawerPreview() {
+    TopBar("My Title")
 }

@@ -10,6 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
 import coil.compose.SubcomposeAsyncImage
+import coil.request.CachePolicy
 import coil.request.ImageRequest
 import com.bbrustol.uikit.R
 
@@ -33,8 +34,12 @@ fun LoadImage(
     SubcomposeAsyncImage(
         model = ImageRequest.Builder(LocalContext.current)
             .data(imageUrl)
+            .memoryCacheKey(imageUrl)
+            .diskCacheKey(imageUrl)
             .crossfade(true)
             .error(placeholder)
+            .diskCachePolicy(CachePolicy.ENABLED)
+            .memoryCachePolicy(CachePolicy.ENABLED)
             .build(),
         loading = {
             CircularProgressIndicator()

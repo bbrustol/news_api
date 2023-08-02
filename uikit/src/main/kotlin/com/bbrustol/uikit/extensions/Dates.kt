@@ -2,13 +2,15 @@ package com.bbrustol.uikit.extensions
 
 import android.icu.text.SimpleDateFormat
 import androidx.core.net.ParseException
-import com.bbrustol.uikit.utils.TimeFormat
-import java.util.*
+import com.bbrustol.uikit.utils.TimeFormatType
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 fun String.formatDate(pattern: String) : String {
     return try {
-        val inputFormat = SimpleDateFormat(TimeFormat.YYYYMMDD_T_HHMMSSSSSZ.pattern, Locale.getDefault())
+        val inputFormat = SimpleDateFormat(TimeFormatType.YYYYMMDD_T_HHMMSSSSSZ.pattern, Locale.getDefault())
         val outputFormat = SimpleDateFormat(pattern, Locale.getDefault())
         return outputFormat.format(inputFormat.parse(this))
     } catch (e: ParseException,) {
@@ -19,14 +21,14 @@ fun String.formatDate(pattern: String) : String {
 }
 
 fun isAfter(dateTime: String): Boolean {
-    val strToDate = SimpleDateFormat(TimeFormat.YYYYMMDD_T_HHMMSSSSSZ.pattern, Locale.getDefault()).parse(dateTime)
+    val strToDate = SimpleDateFormat(TimeFormatType.YYYYMMDD_T_HHMMSSSSSZ.pattern, Locale.getDefault()).parse(dateTime)
     return (Date().after(strToDate))
 }
 
 fun String.betweenDates(): String {
     val days365 = 365
     val days30 = 30
-    val strDate = SimpleDateFormat(TimeFormat.YYYYMMDD_T_HHMMSSSSSZ.pattern, Locale.getDefault()).parse(this)
+    val strDate = SimpleDateFormat(TimeFormatType.YYYYMMDD_T_HHMMSSSSSZ.pattern, Locale.getDefault()).parse(this)
     val millionSeconds = strDate.time - Calendar.getInstance().timeInMillis
 
     var days = TimeUnit.MILLISECONDS.toDays(millionSeconds)
@@ -38,5 +40,5 @@ fun String.betweenDates(): String {
     val hr = (TimeUnit.MILLISECONDS.toHours(millionSeconds) - TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(millionSeconds)))
     val min = (TimeUnit.MILLISECONDS.toMinutes(millionSeconds) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millionSeconds)))
 
-    return String.format("%dY %dM %dD %dH %dM", yr, mn, days, hr, min)//TimeUnit.MILLISECONDS.toDays(millionSeconds).toString()
+    return String.format("%dY %dM %dD %dH %dM", yr, mn, days, hr, min)
 }

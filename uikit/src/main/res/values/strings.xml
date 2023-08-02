@@ -4,11 +4,15 @@
     <string name="speech_default_image_accessibility">News Picture</string>
     <string name="speech_close_dialog">Close Dialog</string>
     <string name="speech_filter_topbar">Filter results</string>
-
-    <string name="catch_generic_message">Generic Error, Try again</string>
+    <string name="speech_back_topbar">back</string>
 
     <string name="no_token">Missing api key.\n\nPlease add API_KEY=YOUR_KEY in local.properties</string>
-
-        <string name="ops">Ooops!</string>
+    
+    <string name="details_screen_read_more">read more [+]</string>
+    
+    <!--region error messages--> 
+    <string name="catch_generic_message">Generic Error, Try again</string>
+    <string name="ops">Ooops!</string>
     <string name="try_again">Try again</string>
+    <!-- endregion -->
 </resources>

@@ -17,6 +17,12 @@ android {
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions.add("core")
+    productFlavors {
+        create("bbc-news") { dimension = "core" }
+        create("bbc-sport") { dimension = "core" }
+    }
+
     compileOptions {
         sourceCompatibility = Versions.JAVA
         targetCompatibility = Versions.JAVA

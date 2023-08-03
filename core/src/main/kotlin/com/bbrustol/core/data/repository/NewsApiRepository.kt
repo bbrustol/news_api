@@ -19,14 +19,18 @@ class NewsApiRepository @Inject constructor(
     private val remoteNewsApiDataSource: NewsApiDataSource,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) {
-    fun getHeadline(source: String = "bbc-news"): Flow<ApiResult<HeadlineResponse>> {
+
+    fun getHeadline(source: String = BuildConfig.SOURCE): Flow<ApiResult<HeadlineResponse>> {
         return flow {
             emit(if (BuildConfig.API_KEY.isNotEmpty()) {
                 handleApi { remoteNewsApiDataSource.getHeadline(source) }
             } else {
-                ApiError(code = 1234, message = "")
+                ApiError(code = NO_API_KEY, message = "")
             })
-
         }.flowOn(ioDispatcher)
+    }
+
+    companion object {
+        const val NO_API_KEY = 1234
     }
 }

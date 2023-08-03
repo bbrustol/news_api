@@ -28,9 +28,15 @@ android {
         }
     }
 
+    flavorDimensions.add("core")
+    productFlavors {
+        create("bbc-news") { dimension = "core" }
+        create("bbc-sport") { dimension = "core" }
+    }
+
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
 

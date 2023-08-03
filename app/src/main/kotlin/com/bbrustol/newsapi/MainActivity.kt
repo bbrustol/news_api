@@ -54,11 +54,15 @@ class MainActivity : FragmentActivity() {
                 negativeText = "Cancel",
                 onSuccess = { setContent { Start() } },
                 onError = { errorCode, errorString ->
-                    Toast.makeText(
-                        this,
-                        "Authentication error: $errorCode, $errorString",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    if (errorCode == 11) {
+                        setContent { Start() }
+                    } else {
+                        Toast.makeText(
+                            this,
+                            "Authentication error: $errorCode, $errorString",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 },
                 onFailed = {
                     Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()

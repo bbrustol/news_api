@@ -11,33 +11,26 @@ import androidx.biometric.BiometricManager.BIOMETRIC_STATUS_UNKNOWN
 import androidx.biometric.BiometricManager.BIOMETRIC_SUCCESS
 import androidx.biometric.BiometricManager.from
 import androidx.biometric.BiometricPrompt
-import androidx.biometric.BiometricPrompt.*
+import androidx.biometric.BiometricPrompt.AuthenticationCallback
+import androidx.biometric.BiometricPrompt.AuthenticationResult
+import androidx.biometric.BiometricPrompt.PromptInfo
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 
 object Biometric {
 
-    fun status(con: Context): Boolean {
-        var result = false
-        val biometricManager = from(con)
+    fun status(context: Context) =
+        when (from(context).canAuthenticate(Authenticators.DEVICE_CREDENTIAL or Authenticators.BIOMETRIC_STRONG)) {
+            BIOMETRIC_SUCCESS -> true
+            BIOMETRIC_ERROR_NO_HARDWARE,
+            BIOMETRIC_ERROR_HW_UNAVAILABLE,
+            BIOMETRIC_ERROR_NONE_ENROLLED,
+            BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED,
+            BIOMETRIC_ERROR_UNSUPPORTED,
+            BIOMETRIC_STATUS_UNKNOWN -> false
 
-        when (biometricManager.canAuthenticate(Authenticators.DEVICE_CREDENTIAL or Authenticators.BIOMETRIC_STRONG)) {
-            BIOMETRIC_SUCCESS -> result = true
-            BIOMETRIC_ERROR_NO_HARDWARE -> result = false
-            BIOMETRIC_ERROR_HW_UNAVAILABLE -> result = false
-            BIOMETRIC_ERROR_NONE_ENROLLED -> result = false
-            BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED ->
-                result = true
-
-            BIOMETRIC_ERROR_UNSUPPORTED ->
-                result = true
-
-            BIOMETRIC_STATUS_UNKNOWN ->
-                result = false
+            else -> false
         }
-
-        return result
-    }
 
     fun authenticate(
         activity: FragmentActivity,

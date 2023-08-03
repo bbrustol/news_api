@@ -15,6 +15,7 @@ object Dependencies {
         const val CORE_KTX = "androidx.core:core-ktx:${Versions.AndroidX.CORE_KTX}"
         const val APPCOMPAT = "androidx.appcompat:appcompat:${Versions.AndroidX.APPCOMPAT}"
         const val ACTIVITY_COMPOSE = "androidx.activity:activity-compose:${Versions.AndroidX.ACTIVITY_COMPOSE}"
+        const val BIOMETRIC = "androidx.biometric:biometric:${Versions.AndroidX.BIOMETRIC}"
 
         object Compose {
             const val FOUNDATION = "androidx.compose.foundation:foundation:${Versions.AndroidX.COMPOSE}"
@@ -101,6 +102,7 @@ object Dependencies {
 
     fun DependencyHandlerScope.common() {
         "implementation"(AndroidX.APPCOMPAT)
+        "implementation"(AndroidX.BIOMETRIC)
         "implementation"(AndroidX.CORE_KTX)
 
         "implementation"(Google.Hilt.ANDROID)

@@ -74,17 +74,10 @@ fun CardHeadline(headlineModel: HeadlineModel, position: Int, navController: Nav
                                 content = headlineModel.publishedAt.formatDate(TimeFormatType.DDMMMYYYY_HHMM.pattern),
                                 modifier = Modifier.constrainAs(publishedAt) {
                                     top.linkTo(author.top)
-                                    linkTo(author.end, parent.end, startMargin = 20.dp, endMargin = 20.dp, bias = 1F)
+                                    linkTo(author.end, parent.end, bias = 1F)
                                     width = Dimension.preferredWrapContent
                                 }
                             )
-                        }
-
-                        Row (modifier = Modifier
-                            .fillMaxWidth()
-                            .align(Alignment.CenterHorizontally)
-                        ) {
-
                         }
                     }
                 }

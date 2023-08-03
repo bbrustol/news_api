@@ -24,8 +24,7 @@ object Versions {
         const val LIFECYCLE = "2.6.1"
         const val MATERIAL3 = "1.1.1"
         const val NAVIGATION = "2.6.0"
-
-
+        const val BIOMETRIC = "1.1.0"
     }
 
     object Squareup {

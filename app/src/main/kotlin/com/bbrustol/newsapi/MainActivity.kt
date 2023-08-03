@@ -2,7 +2,7 @@ package com.bbrustol.newsapi
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
@@ -10,6 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
@@ -21,6 +22,7 @@ import androidx.navigation.navArgument
 import com.bbrustol.features.IsLoading
 import com.bbrustol.features.ShowError
 import com.bbrustol.features.ShowGenericError
+import com.bbrustol.features.biometric.Biometric
 import com.bbrustol.features.home.*
 import com.bbrustol.features.home.HomeViewModel.*
 import com.bbrustol.features.home.HomeViewModel.UiState.*
@@ -35,12 +37,36 @@ import com.bbrustol.uikit.utils.NavScreensType
 import dagger.hilt.android.AndroidEntryPoint
 import com.bbrustol.uikit.R as UIKIT_R
 
-
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { Start() }
+        checkBiometric()
+    }
+
+    private fun checkBiometric() {
+        if (Biometric.status(this)) {
+            Biometric.authenticate(
+                this@MainActivity,
+                title = "Biometric Authentication",
+                subtitle = "Authenticate to proceed",
+                description = "Authentication is must",
+                negativeText = "Cancel",
+                onSuccess = { setContent { Start() } },
+                onError = { errorCode, errorString ->
+                    Toast.makeText(
+                        this,
+                        "Authentication error: $errorCode, $errorString",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                },
+                onFailed = {
+                    Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
+                }
+            )
+        } else {
+            setContent { Start() }
+        }
     }
 
     companion object {
@@ -48,7 +74,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun Start(viewModel: HomeViewModel = viewModel()) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()

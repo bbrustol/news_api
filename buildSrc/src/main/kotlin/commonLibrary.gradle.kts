@@ -10,6 +10,9 @@ plugins {
 
 android {
     compileSdk = Versions.App.COMPILE_SDK
+    defaultConfig {
+        minSdk = Versions.App.MIN_SDK
+    }
 
     compileOptions {
         sourceCompatibility = Versions.JAVA

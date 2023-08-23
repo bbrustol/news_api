@@ -1,6 +1,7 @@
-package com.bbrustol.core.data.infrastructure
+package com.bbrustol.support.infrastructure
 
 import android.content.Context
+import com.bbrustol.support.extesion.isNetworkAvailable
 import okhttp3.Interceptor
 import okhttp3.Response
 

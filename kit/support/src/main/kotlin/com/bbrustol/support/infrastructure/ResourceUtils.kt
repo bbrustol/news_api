@@ -1,4 +1,4 @@
-package com.bbrustol.core.data.infrastructure
+package com.bbrustol.support.infrastructure
 
 import java.util.*
 

@@ -1,4 +1,4 @@
-package com.bbrustol.features.home.model
+package com.bbrustol.domain.model
 
 data class HeadlineModel(
     val id: String,

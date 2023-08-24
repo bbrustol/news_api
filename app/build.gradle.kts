@@ -12,6 +12,9 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.UIKIT))
+    implementation(project(Modules.DOMAIN))
     implementation(project(Modules.FEATURES))
+    implementation(project(Modules.KIT_UI))
+    implementation(project(Modules.KIT_SUPPORT))
+    implementation(project(Modules.CORE))
 }

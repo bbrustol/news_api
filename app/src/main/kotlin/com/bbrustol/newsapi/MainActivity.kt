@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.FragmentActivity
@@ -19,17 +20,20 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.bbrustol.features.IsLoading
-import com.bbrustol.features.ShowError
-import com.bbrustol.features.ShowGenericError
-import com.bbrustol.features.biometric.Biometric
+import com.bbrustol.domain.model.HeadlineErrorModel
+import com.bbrustol.domain.model.HeadlineModel
 import com.bbrustol.features.home.*
-import com.bbrustol.features.home.HomeViewModel.*
-import com.bbrustol.features.home.HomeViewModel.UiState.*
-import com.bbrustol.features.home.compose.DetailsScreen
-import com.bbrustol.features.home.compose.EmptyStateScreen
-import com.bbrustol.features.home.compose.HeadlineScreen
-import com.bbrustol.features.home.model.HeadlineModel
+import com.bbrustol.features.ui.IsLoading
+import com.bbrustol.features.ui.ShowError
+import com.bbrustol.features.ui.ShowGenericError
+import com.bbrustol.features.ui.biometric.Biometric
+import com.bbrustol.features.ui.home.HomeViewModel
+import com.bbrustol.features.ui.home.HomeViewModel.*
+import com.bbrustol.features.ui.home.UiState
+import com.bbrustol.features.ui.home.UiState.*
+import com.bbrustol.features.ui.home.compose.DetailsScreen
+import com.bbrustol.features.ui.home.compose.EmptyStateScreen
+import com.bbrustol.features.ui.home.compose.HeadlineScreen
 import com.bbrustol.newsapi.MainActivity.Companion.NO_API_KEY
 import com.bbrustol.uikit.compose.scaffold.TopBar
 import com.bbrustol.uikit.theme.NewsApiTheme
@@ -89,22 +93,27 @@ fun RenderState(uiState: UiState, onRetryAction: () -> Unit) {
     when (uiState) {
         Idle -> {/*nothing to do*/ }
         Loading -> IsLoading()
-        is Failure -> ShowFailure(uiState, onRetryAction)
-        is Catch -> ShowGenericError(
-            uiState.message ?: stringResource(UIKIT_R.string.catch_generic_message),
+        is Failure -> ShowFailure(uiState.headlineErrorModel, onRetryAction)
+        is GlobalError -> ShowGenericError(
+            stringResource(UIKIT_R.string.catch_generic_message),
             onRetryAction
         )
 
         is Success -> SetupView(uiState.headlineModel)
+        NetWorkUnavailable -> Toast.makeText(
+            LocalContext.current,
+            "Check your connection",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }
 
 @Composable
-private fun ShowFailure(uiState: Failure, onRetryAction: () -> Unit) {
-    if (uiState.code == NO_API_KEY) {
+private fun ShowFailure(headlineErrorModel: HeadlineErrorModel, onRetryAction: () -> Unit) {
+    if (headlineErrorModel.code == NO_API_KEY) {
         ShowGenericError(stringResource(UIKIT_R.string.no_token), onRetryAction)
     } else {
-        ShowError(uiState.code, uiState.message, onRetryAction)
+        ShowError(headlineErrorModel.code, headlineErrorModel.description, onRetryAction)
     }
 }
 

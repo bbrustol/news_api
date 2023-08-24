@@ -1,4 +1,4 @@
-package com.bbrustol.features.biometric
+package com.bbrustol.features.ui.biometric
 
 import android.content.Context
 import androidx.biometric.BiometricManager.Authenticators

@@ -1,7 +1,7 @@
 package com.bbrustol.features.home.compose.utils
 
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
-import com.bbrustol.features.home.model.HeadlineModel
+import com.bbrustol.domain.model.HeadlineModel
 
 class HeadlinePreviewParamProvider : PreviewParameterProvider<HeadlineModel> {
     override val values: Sequence<HeadlineModel> =

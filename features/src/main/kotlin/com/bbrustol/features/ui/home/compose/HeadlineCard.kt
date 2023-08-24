@@ -1,4 +1,4 @@
-package com.bbrustol.features.home.compose
+package com.bbrustol.features.ui.home.compose
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -19,7 +19,7 @@ import androidx.constraintlayout.compose.Dimension
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.bbrustol.features.home.compose.utils.HeadlinePreviewParamProvider
-import com.bbrustol.features.home.model.HeadlineModel
+import com.bbrustol.domain.model.HeadlineModel
 import com.bbrustol.uikit.compose.TextsCard
 import com.bbrustol.uikit.extensions.formatDate
 import com.bbrustol.uikit.utils.LoadImage

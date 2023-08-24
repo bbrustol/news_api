@@ -1,4 +1,4 @@
-package com.bbrustol.features.home.compose
+package com.bbrustol.features.ui.home.compose
 
 import android.content.Intent
 import android.net.Uri
@@ -45,7 +45,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.bbrustol.features.home.compose.utils.HeadlineListPreviewParamProvider
 import com.bbrustol.features.home.compose.utils.HeadlinePreviewParamProvider
-import com.bbrustol.features.home.model.HeadlineModel
+import com.bbrustol.domain.model.HeadlineModel
 import com.bbrustol.uikit.extensions.formatDate
 import com.bbrustol.uikit.extensions.getHeight
 import com.bbrustol.uikit.utils.LoadImage
@@ -152,7 +152,7 @@ fun DetailsScreen(
 
                 if (!content.isNullOrEmpty()) {
                     Text(
-                        text = content,
+                        text = content!!,
                         style = MaterialTheme.typography.bodyLarge
                     )
 

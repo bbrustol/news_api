@@ -7,6 +7,9 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.CORE))
-    implementation(project(Modules.UIKIT))
+    implementation(project(Modules.KIT_UI))
+    //region domain
+    implementation(project(Modules.DOMAIN))
+    implementation(project(Modules.KIT_SUPPORT))
+    //endregion
 }

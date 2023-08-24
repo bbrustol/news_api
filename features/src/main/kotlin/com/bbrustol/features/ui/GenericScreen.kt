@@ -1,4 +1,4 @@
-package com.bbrustol.features
+package com.bbrustol.features.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -7,7 +7,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.bbrustol.features.home.compose.ErrorScreen
+import com.bbrustol.features.ui.home.compose.ErrorScreen
 
 @Composable
 fun ShowGenericError(message: String, onRetryAction:() -> Unit) {

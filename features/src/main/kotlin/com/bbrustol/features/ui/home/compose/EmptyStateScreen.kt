@@ -1,4 +1,4 @@
-package com.bbrustol.features.home.compose
+package com.bbrustol.features.ui.home.compose
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

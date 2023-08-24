@@ -2,7 +2,7 @@ package com.bbrustol.core.data.di
 
 import android.content.Context
 import com.bbrustol.core.BuildConfig
-import com.bbrustol.core.data.infrastructure.ApiCacheInterceptor
+import com.bbrustol.support.infrastructure.ApiCacheInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

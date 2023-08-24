@@ -27,6 +27,9 @@ android {
     }
 
     dependencies {
+        implementation(project(Modules.DOMAIN))
+        implementation(project(Modules.KIT_SUPPORT))
+
         implementation (Squareup.RETROFIT)
         implementation (Squareup.OKHTTP3)
 

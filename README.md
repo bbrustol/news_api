@@ -37,7 +37,7 @@ I hope you are enjoying the project.
 
 ## To run
 
-I used an Open API, to see this project running you need to access https://newsapi.org and register.
+I used an Open API, to see this project running you need to access https://newsapi.org and register.  
 In the project you need to change the "local.properties" file to add the API key.
 
 

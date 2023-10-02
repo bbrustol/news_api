@@ -20,7 +20,7 @@ There is error screen
 
 ![](gifs/fail_and_retry.gif)
 
-I tried to write a project as clean as I could, using the best practices in 2023 in base of SOLID.
+I tried to write a project as clean as possible, using the best practices in 2023 based on SOLID.
 
 - unidirectional flow
 - Jetpack Compose

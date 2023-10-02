@@ -35,6 +35,16 @@ I tried to write a project as clean as I could, using the best practices in 2023
 
 I hope you are enjoying the project.
 
+## To run
+
+I used an Open API, to see this project running you need to access https://newsapi.org and register.
+In the project you need to change the "local.properties" file to add the API key.
+
+
 ## Authors
 
-- [Bruno Brustoloni e Oliveira @bbrustol](https://www.github.com/bbrustol)
+
+Bruno Brustoloni e Oliveira
+
+- email: bbrustol@gmail.com
+- LinkedIn: [https://www.linkedin.com/in/bbrustol/](http://www.linkedin.com/in/bbrustol)

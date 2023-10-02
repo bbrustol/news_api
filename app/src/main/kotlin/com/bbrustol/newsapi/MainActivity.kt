@@ -54,7 +54,7 @@ class MainActivity : FragmentActivity() {
                 negativeText = "Cancel",
                 onSuccess = { setContent { Start() } },
                 onError = { errorCode, errorString ->
-                    if (errorCode == 11) {
+                    if (errorCode == BIOMETRIC_ERROR_NO_BIOMETRICS) {
                         setContent { Start() }
                     } else {
                         Toast.makeText(
@@ -75,6 +75,7 @@ class MainActivity : FragmentActivity() {
 
     companion object {
         const val NO_API_KEY = 1234
+        private const val BIOMETRIC_ERROR_NO_BIOMETRICS = 11
     }
 }
 
@@ -87,14 +88,11 @@ fun Start(viewModel: HomeViewModel = viewModel()) {
 @Composable
 fun RenderState(uiState: UiState, onRetryAction: () -> Unit) {
     when (uiState) {
-        Idle -> {/*nothing to do*/ }
+        Idle -> { /*nothing to do*/ }
         Loading -> IsLoading()
         is Failure -> ShowFailure(uiState, onRetryAction)
-        is Catch -> ShowGenericError(
-            uiState.message ?: stringResource(UIKIT_R.string.catch_generic_message),
-            onRetryAction
+        is Catch -> ShowGenericError(uiState.message ?: stringResource(UIKIT_R.string.catch_generic_message), onRetryAction
         )
-
         is Success -> SetupView(uiState.headlineModel)
     }
 }

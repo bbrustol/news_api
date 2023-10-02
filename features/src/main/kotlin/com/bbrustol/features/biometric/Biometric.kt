@@ -28,7 +28,6 @@ object Biometric {
             BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED,
             BIOMETRIC_ERROR_UNSUPPORTED,
             BIOMETRIC_STATUS_UNKNOWN -> false
-
             else -> false
         }
 

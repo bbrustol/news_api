@@ -5,20 +5,20 @@ object Versions {
         const val VERSION_CODE = 1
         const val VERSION_NAME = "1.0.0"
         const val MIN_SDK = 24
-        const val TARGET_SDK = 33
-        const val COMPILE_SDK = 33
+        const val TARGET_SDK = 34
+        const val COMPILE_SDK = 34
     }
 
     object Google {
         const val FLOW_LAYOUT = "0.30.1"
-        const val HILT = "2.47"
+        const val HILT = "2.48"
         const val MATERIAL = "1.9.0"
     }
 
     object AndroidX {
         const val ACTIVITY_COMPOSE = "1.7.2"
         const val APPCOMPAT = "1.6.1"
-        const val COMPOSE = "1.4.3"
+        const val COMPOSE = "1.5.0"
         const val CONSTRAINT_LAYOUT = "1.0.1"
         const val CORE_KTX = "1.10.1"
         const val LIFECYCLE = "2.6.1"
@@ -53,9 +53,9 @@ object Versions {
     const val COROUTINES = "1.7.3"
 
     // Make sure to update `buildSrc/build.gradle.kts` when updating this
-    const val GRADLE = "8.1.0"
+    const val GRADLE = "8.1.2"
     // Make sure to update `buildSrc/build.gradle.kts` when updating this
-    const val KOTLIN = "1.8.10"
+    const val KOTLIN = "1.9.0"
 
     val JAVA = JavaVersion.VERSION_17
 }

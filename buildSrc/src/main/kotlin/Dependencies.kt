@@ -1,4 +1,4 @@
-import org.gradle.kotlin.dsl.DependencyHandlerScope
+import org.gradle.api.artifacts.dsl.DependencyHandler
 
 object Dependencies {
 
@@ -74,66 +74,66 @@ object Dependencies {
             const val MOCKK = "io.mockk:mockk-android:${Versions.Test.MOCKK}"
             const val COMPOSE_UI_TEST = "androidx.compose.ui:ui-test-junit4:${Versions.Test.COMPOSE_UI_TEST}"
             const val RUNNER = "androidx.test:runner:${Versions.Test.RUNNER}"
-            const val ORCHESTRATOR = "androidx.test:orchestrator:${Versions.Test.RUNNER}"
+            const val ORCHESTRATOR = "androidx.test:orchestrator:${Versions.Test.ORCHESTRACTOR}"
         }
     }
 
-    fun DependencyHandlerScope.commonView() {
-        "implementation"(Google.MATERIAL)
-        "implementation"(Google.FLOW_LAYOUT)
+    fun DependencyHandler.commonView() {
+        implementation(Google.MATERIAL)
+        implementation(Google.FLOW_LAYOUT)
 
-        "implementation"(AndroidX.ACTIVITY_COMPOSE)
+        implementation(AndroidX.ACTIVITY_COMPOSE)
 
-        "implementation"(AndroidX.Compose.CONSTRAINT_LAYOUT)
-        "implementation"(AndroidX.Compose.FOUNDATION)
-        "implementation"(AndroidX.Compose.FOUNDATION_LAYOUT)
-        "implementation"(AndroidX.Compose.LIFECYCLE_VIEWMODEL)
-        "implementation"(AndroidX.Compose.LIFECYCLE_RUNTIME)
-        "implementation"(AndroidX.Compose.MATERIAL3)
-        "implementation"(AndroidX.Compose.NAVIGATION)
-        "implementation"(AndroidX.Compose.RUNTIME)
-        "implementation"(AndroidX.Compose.UI)
-        "implementation"(AndroidX.Compose.UI_TOOLING_PREVIEW)
+        implementation(AndroidX.Compose.CONSTRAINT_LAYOUT)
+        implementation(AndroidX.Compose.FOUNDATION)
+        implementation(AndroidX.Compose.FOUNDATION_LAYOUT)
+        implementation(AndroidX.Compose.LIFECYCLE_VIEWMODEL)
+        implementation(AndroidX.Compose.LIFECYCLE_RUNTIME)
+        implementation(AndroidX.Compose.MATERIAL3)
+        implementation(AndroidX.Compose.NAVIGATION)
+        implementation(AndroidX.Compose.RUNTIME)
+        implementation(AndroidX.Compose.UI)
+        implementation(AndroidX.Compose.UI_TOOLING_PREVIEW)
 
-        "debugImplementation"(AndroidX.Compose.UI_TOOLING)
+        debugImplementation(AndroidX.Compose.UI_TOOLING)
         
-        "implementation"(Others.COIL)
+        implementation(Others.COIL)
     }
 
-    fun DependencyHandlerScope.common() {
-        "implementation"(AndroidX.APPCOMPAT)
-        "implementation"(AndroidX.BIOMETRIC)
-        "implementation"(AndroidX.CORE_KTX)
+    fun DependencyHandler.common() {
+        implementation(AndroidX.APPCOMPAT)
+        implementation(AndroidX.BIOMETRIC)
+        implementation(AndroidX.CORE_KTX)
 
-        "implementation"(Google.Hilt.ANDROID)
-        "kapt"(Google.Hilt.ANDROID_COMPILER)
+        implementation(Google.Hilt.ANDROID)
+        kapt(Google.Hilt.ANDROID_COMPILER)
 
-        "implementation"(Squareup.RETROFIT_MOSHI)
+        implementation(Squareup.RETROFIT_MOSHI)
 
-        "implementation"(Jetbrains.KOTLIN_STDLIB)
-        "implementation"(Jetbrains.Coroutines.ANDROID)
-        "implementation"(Jetbrains.Coroutines.CORE)
-        "implementation"(Jetbrains.Coroutines.PLAY_SERVICES)
+        implementation(Jetbrains.KOTLIN_STDLIB)
+        implementation(Jetbrains.Coroutines.ANDROID)
+        implementation(Jetbrains.Coroutines.CORE)
+        implementation(Jetbrains.Coroutines.PLAY_SERVICES)
     }
 
-    fun DependencyHandlerScope.commonUnitTest() {
-        "testImplementation"(Test.Unit.CORE_TESTING)
-        "testImplementation"(Test.Unit.COROUTINES_TEST)
-        "testImplementation"(Test.Unit.JUNIT)
-        "testImplementation"(Test.Unit.MOCKK)
-        "testImplementation"(Test.Unit.MOCKK_AGENT)
-        "testImplementation"(Test.Unit.TURBINE)
+    fun DependencyHandler.commonUnitTest() {
+        testImplementation(Test.Unit.CORE_TESTING)
+        testImplementation(Test.Unit.COROUTINES_TEST)
+        testImplementation(Test.Unit.JUNIT)
+        testImplementation(Test.Unit.MOCKK)
+        testImplementation(Test.Unit.MOCKK_AGENT)
+        testImplementation(Test.Unit.TURBINE)
     }
 
-    fun DependencyHandlerScope.commonIntegrationTest() {
-        "androidTestImplementation"(Test.Integration.COMPOSE_UI_TEST)
-        "androidTestImplementation"(Test.Integration.ESPRESSO_CORE)
-        "androidTestImplementation"(Test.Integration.ESPRESSO_INTENTS)
-        "androidTestImplementation"(Test.Integration.JUNIT)
-        "androidTestImplementation"(Test.Integration.MOCK_WEBSERVER)
-        "androidTestImplementation"(Test.Integration.MOCKK)
-        "androidTestImplementation"(Test.Integration.RUNNER)
+    fun DependencyHandler.commonIntegrationTest() {
+        androidTestImplementation(Test.Integration.COMPOSE_UI_TEST)
+        androidTestImplementation(Test.Integration.ESPRESSO_CORE)
+        androidTestImplementation(Test.Integration.ESPRESSO_INTENTS)
+        androidTestImplementation(Test.Integration.JUNIT)
+        androidTestImplementation(Test.Integration.MOCK_WEBSERVER)
+        androidTestImplementation(Test.Integration.MOCKK)
+        androidTestImplementation(Test.Integration.RUNNER)
         
-        "androidTestUtil"(Test.Integration.ORCHESTRATOR)
+        androidTestUtil(Test.Integration.ORCHESTRATOR)
     }
 }

@@ -5,9 +5,9 @@ import Dependencies.commonUnitTest
 
 plugins {
     id("com.android.library")
+    id("kotlin-parcelize")
     kotlin("android")
     kotlin("kapt")
-    id("kotlin-parcelize")
 }
 
 android {

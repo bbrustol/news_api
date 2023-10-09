@@ -32,6 +32,7 @@ I tried to write a project as clean as possible, using the best practices in 202
 - Flavor in a sub module
 - unit tests with MockK
 - this project is accessible.
+- Karma commit http://karma-runner.github.io/6.4/dev/git-commit-msg.html
 
 I hope you are enjoying the project.
 

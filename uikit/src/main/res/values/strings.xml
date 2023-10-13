@@ -15,4 +15,14 @@
     <string name="ops">Ooops!</string>
     <string name="try_again">Try again</string>
     <!-- endregion -->
+
+    <!-- region biometrics -->
+    <string name="biometric_authentication">Biometric Authentication</string>
+    <string name="biometric_auth_proceed">Authenticate to proceed</string>
+    <string name="biometric_auth_must">Authentication is must!</string>
+    <string name="biometric_auth_negative_button">Cancel</string>
+    <string name="biometric_auth_error">Authentication error : %1$d, %2$s</string>
+    <string name="biometric_auth_failed">Authentication failed</string>
+
+    <!-- endregion -->
 </resources>

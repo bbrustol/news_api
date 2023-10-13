@@ -8,7 +8,7 @@ import com.bbrustol.core.data.infrastructure.ApiSuccess
 import com.bbrustol.core.data.infrastructure.ResourceUtils
 import com.bbrustol.core.data.remote.newsapi.model.response.headline.HeadlineResponse
 import com.bbrustol.core.data.repository.NewsApiRepository
-import com.bbrustol.features.home.HomeViewModel.*
+import com.bbrustol.features.home.HeadlineViewModel.*
 import com.squareup.moshi.Moshi
 import io.mockk.*
 import kotlinx.coroutines.Dispatchers
@@ -32,7 +32,7 @@ class HomeViewModelTest {
 
     private val newsApiRepository = mockk<NewsApiRepository>()
 
-    private lateinit var viewModel: HomeViewModel
+    private lateinit var viewModel: HeadlineViewModel
 
     private lateinit var moshi: Moshi
 
@@ -59,7 +59,7 @@ class HomeViewModelTest {
 
         coEvery { newsApiRepository.getHeadline() } returns flow { throw IllegalStateException() }
 
-        viewModel = HomeViewModel(newsApiRepository)
+        viewModel = HeadlineViewModel(newsApiRepository)
 
         viewModel.uiState.test {
             assertTrue(awaitItem() is UiState.Catch)
@@ -74,7 +74,7 @@ class HomeViewModelTest {
 
         coEvery { newsApiRepository.getHeadline() } returns flow { emit(ApiException(Throwable(""))) }
 
-        viewModel = HomeViewModel(newsApiRepository)
+        viewModel = HeadlineViewModel(newsApiRepository)
 
         viewModel.uiState.test {
             assertTrue(awaitItem() is UiState.Catch)
@@ -89,7 +89,7 @@ class HomeViewModelTest {
 
         coEvery { newsApiRepository.getHeadline() } returns flow { emit(ApiError(0, "")) }
 
-        viewModel = HomeViewModel(newsApiRepository)
+        viewModel = HeadlineViewModel(newsApiRepository)
 
         viewModel.uiState.test {
             assertTrue(awaitItem() is UiState.Failure)
@@ -104,7 +104,7 @@ class HomeViewModelTest {
 
         coEvery { newsApiRepository.getHeadline() } returns flow { emit(ApiSuccess(getHeadlinesMock())) }
 
-        viewModel = HomeViewModel(newsApiRepository)
+        viewModel = HeadlineViewModel(newsApiRepository)
 
         viewModel.uiState.test {
             assertTrue(awaitItem() is UiState.Success)

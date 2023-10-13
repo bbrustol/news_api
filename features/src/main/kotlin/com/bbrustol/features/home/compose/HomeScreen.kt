@@ -41,8 +41,10 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.bbrustol.features.home.HeadlineShareViewModel
 import com.bbrustol.features.home.compose.utils.HeadlineListPreviewParamProvider
 import com.bbrustol.features.home.compose.utils.HeadlinePreviewParamProvider
 import com.bbrustol.features.home.model.HeadlineModel
@@ -53,11 +55,15 @@ import com.bbrustol.uikit.utils.TimeFormatType
 import com.bbrustol.uikit.R as UIKIT_R
 
 @Composable
-fun HeadlineScreen(headlineModel: List<HeadlineModel>, navController: NavHostController) {
+fun HeadlineScreen(
+    headlineModel: List<HeadlineModel>,
+    shareViewModel: HeadlineShareViewModel,
+    navController: NavHostController
+) {
     val state = rememberLazyListState()
     LazyColumn(state = state) {
         items(headlineModel.size) {
-            CardHeadline(headlineModel[it], it, navController)
+            CardHeadline(headlineModel[it], shareViewModel, navController)
         }
     }
 }
@@ -180,7 +186,8 @@ fun DetailsScreen(
 fun HeadlineScreenPreview(
     @PreviewParameter(HeadlineListPreviewParamProvider::class) headlineModel: List<HeadlineModel>
 ) {
-    HeadlineScreen(headlineModel, rememberNavController())
+    val headlineShareViewModel: HeadlineShareViewModel = viewModel()
+    HeadlineScreen(headlineModel, headlineShareViewModel, rememberNavController())
 }
 
 

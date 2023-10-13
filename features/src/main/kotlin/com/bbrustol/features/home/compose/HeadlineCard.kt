@@ -16,25 +16,34 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.bbrustol.features.home.HeadlineShareViewModel
 import com.bbrustol.features.home.compose.utils.HeadlinePreviewParamProvider
 import com.bbrustol.features.home.model.HeadlineModel
 import com.bbrustol.uikit.compose.TextsCard
 import com.bbrustol.uikit.extensions.formatDate
 import com.bbrustol.uikit.utils.LoadImage
-import com.bbrustol.uikit.utils.NavScreensType
+import com.bbrustol.uikit.utils.Screen
 import com.bbrustol.uikit.utils.TimeFormatType
 import java.util.*
 import com.bbrustol.uikit.R as UIKIT_R
 
 @Composable
-fun CardHeadline(headlineModel: HeadlineModel, position: Int, navController: NavHostController) {
+fun CardHeadline(
+    headlineModel: HeadlineModel,
+    shareViewModel: HeadlineShareViewModel,
+    navController: NavHostController
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp, 4.dp, 8.dp, 0.dp)
-            .clickable { navController.navigate( NavScreensType.HEADLINE_DETAILS.name + "/${position}") },
+            .clickable {
+                shareViewModel.addHeadlineModel(headlineModel)
+                navController.navigate(Screen.GoHeadlineDetails.route)
+            },
         shape = RoundedCornerShape(size = 4.dp),
         colors = cardColors(colorScheme.primaryContainer),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
@@ -91,5 +100,6 @@ fun CardHeadline(headlineModel: HeadlineModel, position: Int, navController: Nav
 fun HeadlineCardPreview(
     @PreviewParameter(HeadlinePreviewParamProvider::class) headlineModel: HeadlineModel
 ) {
-    CardHeadline(headlineModel, 0, rememberNavController())
+    val headlineShareViewModel: HeadlineShareViewModel = viewModel()
+    CardHeadline(headlineModel, headlineShareViewModel, rememberNavController())
 }

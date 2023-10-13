@@ -29,6 +29,7 @@ object Dependencies {
             const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.AndroidX.LIFECYCLE}"
             const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-compose:${Versions.AndroidX.LIFECYCLE}"
             const val NAVIGATION = "androidx.navigation:navigation-compose:${ Versions.AndroidX.NAVIGATION}"
+            const val HILT_NAVIGATION = "androidx.hilt:hilt-navigation-compose:${ Versions.AndroidX.HILT_NAVIGATION}"
 
             const val UI_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.AndroidX.COMPOSE}"
             const val UI_TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Versions.AndroidX.COMPOSE}"
@@ -91,6 +92,7 @@ object Dependencies {
         implementation(AndroidX.Compose.LIFECYCLE_RUNTIME)
         implementation(AndroidX.Compose.MATERIAL3)
         implementation(AndroidX.Compose.NAVIGATION)
+        implementation(AndroidX.Compose.HILT_NAVIGATION)
         implementation(AndroidX.Compose.RUNTIME)
         implementation(AndroidX.Compose.UI)
         implementation(AndroidX.Compose.UI_TOOLING_PREVIEW)

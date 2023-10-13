@@ -1,5 +1,9 @@
 package com.bbrustol.features.home.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class HeadlineModel(
     val id: String,
     val author: String,
@@ -10,4 +14,4 @@ data class HeadlineModel(
     val title: String,
     val url: String,
     val urlToImage: String
-)
+): Parcelable

@@ -6,10 +6,10 @@ import com.bbrustol.core.data.infrastructure.ApiError
 import com.bbrustol.core.data.infrastructure.ApiException
 import com.bbrustol.core.data.infrastructure.ApiSuccess
 import com.bbrustol.core.data.repository.NewsApiRepository
-import com.bbrustol.features.home.HomeViewModel.UiState.Catch
-import com.bbrustol.features.home.HomeViewModel.UiState.Failure
-import com.bbrustol.features.home.HomeViewModel.UiState.Idle
-import com.bbrustol.features.home.HomeViewModel.UiState.Success
+import com.bbrustol.features.home.HeadlineViewModel.UiState.Catch
+import com.bbrustol.features.home.HeadlineViewModel.UiState.Failure
+import com.bbrustol.features.home.HeadlineViewModel.UiState.Idle
+import com.bbrustol.features.home.HeadlineViewModel.UiState.Success
 import com.bbrustol.features.home.model.HeadlineModel
 import com.bbrustol.features.home.model.mappers.toListHeadlineArticleModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(
+class HeadlineViewModel @Inject constructor(
     private val repository: NewsApiRepository
 ) : ViewModel() {
 
@@ -43,8 +43,8 @@ class HomeViewModel @Inject constructor(
     }
 
     sealed class UiState {
-        object Idle : UiState()
-        object Loading : UiState()
+        data object Idle : UiState()
+        data object Loading : UiState()
         data class Success(val headlineModel: List<HeadlineModel>,) : UiState()
         data class Failure(val code: Int, val message: String?) : UiState()
         data class Catch(val message: String?) : UiState()

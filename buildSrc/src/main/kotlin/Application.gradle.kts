@@ -1,11 +1,8 @@
-import Dependencies.common
-import Dependencies.commonView
-import Dependencies.commonIntegrationTest
-import Dependencies.commonUnitTest
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.kotlin
 
 plugins {
+
     id("com.android.application")
     id("kotlin-parcelize")
     kotlin("android")
@@ -59,7 +56,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.AndroidX.COMPOSE
+        kotlinCompilerExtensionVersion = libs.findVersion("androidX-compose").get().toString()
     }
 
     packaging {
@@ -83,9 +80,16 @@ android {
     }
 }
 
+
 dependencies {
-    common()
-    commonView()
-    commonUnitTest()
-    commonIntegrationTest()
+    implementation(libs.findBundle("common").get())
+    kapt(libs.findLibrary("google-hilt-androidCompiler").get())
+
+    implementation(libs.findBundle("commonView").get())
+    debugImplementation(libs.findLibrary("androidX-compose-ui").get())
+
+    testImplementation(libs.findBundle("commonUnitTest").get())
+
+    androidTestImplementation(libs.findBundle("commonIntegrationTest").get())
+    androidTestUtil(libs.findLibrary("test-integration-orchestrator").get())
 }

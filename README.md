@@ -29,6 +29,8 @@ I tried to write a project as clean as possible, using the best practices in 202
 - MVVM architecture and I decided to not use the Domain layer in this project.
 - Gradle Kotlin DSL
 - Gradle plugins
+- Gradle Version Catalog (.toml)
+- Gradle BuildSrc 
 - Flavor in a sub module
 - unit tests with MockK
 - this project is accessible.

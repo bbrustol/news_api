@@ -1,4 +1,3 @@
-import Dependencies.Squareup
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 
 plugins {
@@ -27,8 +26,8 @@ android {
     }
 
     dependencies {
-        implementation (Squareup.RETROFIT)
-        implementation (Squareup.OKHTTP3)
+        implementation(libs.squareup.retrofit)
+        implementation(libs.squareup.okhttp3)
 
         testImplementation(kotlin("test"))
     }

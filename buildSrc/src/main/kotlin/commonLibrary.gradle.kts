@@ -1,6 +1,3 @@
-import Dependencies.common
-import Dependencies.commonUnitTest
-
 plugins {
     id("com.android.library")
     id("kotlin-parcelize")
@@ -32,6 +29,9 @@ android {
 }
 
 dependencies {
-    common()
-    commonUnitTest()
+
+    implementation(libs.findBundle("common").get())
+    kapt(libs.findLibrary("google-hilt-androidCompiler").get())
+
+    testImplementation(libs.findBundle("commonUnitTest").get())
 }

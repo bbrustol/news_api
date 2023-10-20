@@ -1,8 +1,3 @@
-import Dependencies.common
-import Dependencies.commonView
-import Dependencies.commonIntegrationTest
-import Dependencies.commonUnitTest
-
 plugins {
     id("com.android.library")
     id("kotlin-parcelize")
@@ -37,7 +32,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.AndroidX.COMPOSE
+        kotlinCompilerExtensionVersion = libs.findVersion("androidX-compose").get().toString()
     }
 
     testOptions {
@@ -61,8 +56,14 @@ android {
 }
 
 dependencies {
-    common()
-    commonView()
-    commonUnitTest()
-    commonIntegrationTest()
+    implementation(libs.findBundle("common").get())
+    kapt(libs.findLibrary("google-hilt-androidCompiler").get())
+
+    implementation(libs.findBundle("commonView").get())
+    debugImplementation(libs.findLibrary("androidX-compose-ui").get())
+
+    testImplementation(libs.findBundle("commonUnitTest").get())
+
+    androidTestImplementation(libs.findBundle("commonIntegrationTest").get())
+    androidTestUtil(libs.findLibrary("test-integration-orchestrator").get())
 }

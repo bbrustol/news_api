@@ -1,31 +1,29 @@
 package com.bbrustol.support.infrastructure
 
-import android.content.Context
+import com.bbrustol.support.domain.network.NetworkManager
 import com.bbrustol.support.domain.usecase.error.exception.NetworkException
 import com.bbrustol.support.domain.usecase.error.exception.ServiceException
-import com.bbrustol.support.extesion.isNetworkAvailable
 import com.bbrustol.support.extesion.logTag
 import com.bbrustol.support.utils.Either
 import com.bbrustol.support.utils.RetailLogger
-import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.Headers
-import retrofit2.Call
 import retrofit2.HttpException
+import retrofit2.Response
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 @Singleton
 class Network @Inject constructor(
-    @ApplicationContext private val context: Context
+//    private val networkManager: NetworkManager
 ) {
 
     @Throws(NetworkException::class, ServiceException::class)
-    suspend fun <T : Any> handleApi(request: suspend () -> Call<T>): Either<ServiceResponse<T>, ServiceErrorResponse> {
+    suspend fun <T> handleApi(request: suspend () -> Response<T>): Either<ServiceResponse<T>, ServiceErrorResponse> {
+
+//        networkManager.checkConnectivity()
 
         return try {
-            context.isNetworkAvailable()
-
-            with(request().execute()) {
+            with(request()) {
                 if (isSuccessful) {
                     Either.Success(
                         ServiceResponse(
@@ -48,11 +46,11 @@ class Network @Inject constructor(
             RetailLogger.e(logTag, e.toString())
             throw ServiceException(
                 e.message ?: "",
-                request().request().url().toString()
+                request().errorBody().toString()
             )
         } catch (e: IOException) {
             RetailLogger.e(logTag, e.toString())
-            throw ServiceException(e.message ?: "", request().request().url().toString())
+            throw ServiceException(e.message ?: "", request().errorBody().toString())
         }
     }
 

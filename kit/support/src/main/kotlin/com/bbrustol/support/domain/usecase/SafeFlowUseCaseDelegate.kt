@@ -18,33 +18,32 @@ interface SafeFlowUseCaseDelegate {
         onGenericError: (suspend () -> Unit)? = null,
         onNetworkUnavailable: (suspend () -> Unit)? = null,
         dismissAction: (() -> Unit)? = null
-    ) =
-        prepare(input).catch {
-            RetailLogger.e(logTag, it)
-            globalErrorManager.emitError(
-                it,
-                onGenericError,
-                onNetworkUnavailable,
-                dismissAction
-            )
-        }
+    ) = prepare(input).catch {
+        RetailLogger.e(logTag, it)
+        globalErrorManager.emitError(
+            it,
+            onGenericError,
+            onNetworkUnavailable,
+            dismissAction
+        )
+    }
 
     /** Method that handle global errors by default without parameter for use case. Use lambdas for special cases */
     fun <R> FlowUseCase<Unit, R>.safePrepare(
         onGenericError: (suspend () -> Unit)? = null,
         onNetworkUnavailable: (suspend () -> Unit)? = null,
         dismissAction: (() -> Unit)? = null
-    ) =
-        prepare(Unit).catch {
-            RetailLogger.e(logTag, it)
-            globalErrorManager.emitError(
-                it,
-                onGenericError,
-                onNetworkUnavailable,
-                dismissAction
-            )
-        }
+    ) = prepare(Unit).catch {
+        RetailLogger.e(logTag, it)
+        globalErrorManager.emitError(
+            it,
+            onGenericError,
+            onNetworkUnavailable,
+            dismissAction
+        )
+    }
 }
 
 @Singleton
-class SafeFlowUseCaseDefault @Inject constructor(override val globalErrorManager: GlobalErrorManager) : SafeFlowUseCaseDelegate
+class SafeFlowUseCaseDefault @Inject constructor(override val globalErrorManager: GlobalErrorManager) :
+    SafeFlowUseCaseDelegate

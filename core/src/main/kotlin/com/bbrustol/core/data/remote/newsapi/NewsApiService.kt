@@ -2,7 +2,7 @@ package com.bbrustol.core.data.remote.newsapi
 
 
 import com.bbrustol.core.data.remote.newsapi.model.response.headline.HeadlineResponse
-import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -11,5 +11,5 @@ fun interface NewsApiService {
     suspend fun getHeadline(
         @Query("sources") sources: String,
         @Query("apikey") apiKey: String
-    ): Call<HeadlineResponse>
+    ): Response<HeadlineResponse>
 }

@@ -9,13 +9,11 @@ import com.bbrustol.features.ui.home.UiState.*
 import com.bbrustol.support.domain.usecase.SafeFlowUseCaseDelegate
 import com.bbrustol.support.domain.usecase.error.GlobalErrorType
 import com.bbrustol.support.domain.usecase.error.GlobalErrorType.GENERIC_ERROR
-import com.bbrustol.support.extesion.onFailure
-import com.bbrustol.support.extesion.onSuccess
+import com.bbrustol.support.utils.Either
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
@@ -29,9 +27,7 @@ class HomeViewModel @Inject constructor(
     private val _uiState = MutableStateFlow<UiState>(Idle)
     var uiState: StateFlow<UiState> = _uiState
 
-    init {
-        fetchHeadline()
-    }
+    init { fetchHeadline() }
 
     fun fetchHeadline() = headlineUseCase
         .safePrepare(
@@ -40,13 +36,15 @@ class HomeViewModel @Inject constructor(
             onNetworkUnavailable = { _uiState.value = NetWorkUnavailable }
         )
         .onStart { _uiState.value = Loading }
-        .onEach {
-            it.onSuccess { model -> Success(model) }
-            it.onFailure { error -> Failure(error) }
+        .onEach { either ->
+            _uiState.value = when (either) {
+                is Either.Failure -> Failure(either.error)
+                is Either.Success -> Success(either.data)
+            }
         }
-        .onCompletion { _uiState.value = Idle }
         .launchIn(viewModelScope)
 }
+
 
 sealed class UiState {
     object Idle : UiState()

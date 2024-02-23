@@ -98,9 +98,8 @@ fun RenderState(uiState: UiState, onRetryAction: () -> Unit) {
             stringResource(UIKIT_R.string.catch_generic_message),
             onRetryAction
         )
-
         is Success -> SetupView(uiState.headlineModel)
-        NetWorkUnavailable -> Toast.makeText(
+            NetWorkUnavailable -> Toast.makeText(
             LocalContext.current,
             "Check your connection",
             Toast.LENGTH_SHORT

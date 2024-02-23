@@ -2,7 +2,9 @@ package com.bbrustol.core.data.di
 
 import android.content.Context
 import com.bbrustol.core.BuildConfig
+import com.bbrustol.support.domain.network.NetworkManager
 import com.bbrustol.support.infrastructure.ApiCacheInterceptor
+import com.bbrustol.support.infrastructure.Network
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,6 +26,9 @@ class NetworkModule {
     companion object {
         private const val TIMEOUT:Long = 15
     }
+
+    @Provides
+    fun providesServices(networkManager: NetworkManager): Network = Network(networkManager)
 
     @Provides
     @Named("BASE_URL")

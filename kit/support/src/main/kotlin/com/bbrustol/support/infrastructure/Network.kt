@@ -14,13 +14,13 @@ import javax.inject.Inject
 import javax.inject.Singleton
 @Singleton
 class Network @Inject constructor(
-//    private val networkManager: NetworkManager
+    private val networkManager: NetworkManager
 ) {
 
     @Throws(NetworkException::class, ServiceException::class)
     suspend fun <T> handleApi(request: suspend () -> Response<T>): Either<ServiceResponse<T>, ServiceErrorResponse> {
 
-//        networkManager.checkConnectivity()
+        networkManager.checkConnectivity()
 
         return try {
             with(request()) {
